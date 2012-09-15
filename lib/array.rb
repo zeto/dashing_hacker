@@ -5,14 +5,27 @@ class Array
 
   def median
     return nil if empty?
+    sorted = sort
     if count % 2 == 0
-      ar = sort
-      (ar[count/2 - 1] + ar[count/2]) / 2.0
+      (sorted[count/2 - 1] + sorted[count/2]) / 2.0
     else
-      sort[count/2]
+      sorted[count/2]
     end
   end
 
   def mode
+    return nil if empty?
+    number_counts = Hash.new
+    each do |number|
+      if number_counts.has_key?(number)
+        number_counts[number] += 1
+      else
+        number_counts[number] = 1
+      end
+    end
+
+    max = number_counts.values.max
+    mode = number_counts.map {|nc| nc[0] if nc[1] == max}.compact
+    mode.count == 1 ? mode[0] : mode
   end
 end
