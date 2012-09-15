@@ -24,7 +24,7 @@ class ArrayTest < MiniTest::Unit::TestCase
     assert @array_b.median == 3
     assert @array_c.median == 1
     assert @array_d.median == 0.5
-    assert @array_e.median == 0
+    assert @array_e.median == 2.5
   end
 
   def test_mode
