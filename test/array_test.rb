@@ -1,4 +1,5 @@
 require 'minitest/autorun'
+require 'array'
 
 class ArrayTest < MiniTest::Unit::TestCase
 
