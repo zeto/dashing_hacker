@@ -7,7 +7,7 @@ desc "Run tests"
 Rake::TestTask.new("test_units") do |t|
   t.pattern = 'test/*_test.rb'
   t.verbose = true
-  t.warning = false
+  t.warning = true
 end
 
 

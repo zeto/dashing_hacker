@@ -1,5 +1,6 @@
 require 'open-uri'
 require 'json'
+require 'lib/array'
 
 module HackerNews
   def self.front_page_news
