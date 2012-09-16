@@ -4,20 +4,20 @@
 <h1>The dashing hacker</h1>
 
 <ul>
-<% @news.each do |n| %>
-  <li><%= n['title'] %> : <%= n['points'] %></li>
-<% end %>
+  <% @hacker_news.news.each do |n| %>
+    <li><%= n['title'] %> : <%= n['points'] %></li>
+  <% end %>
 </ul>
 
-<p>Mean: <%= @mean %></p>
-<p>Median: <%= @median %></p>
-<p>Mode: <%= @mode %></p>
+<p>Mean: <%= @hacker_news.mean %></p>
+<p>Median: <%= @hacker_news.median %></p>
+<p>Mode: <%= @hacker_news.mode %></p>
 
 <h2>Above median:</h2>
 <ul>
-<% @news_above_median.each do |n| %>
-  <li><%= n['title'] %> : <%= n['points'] %></li>
-<% end %>
+  <% @hacker_news.above_median.each do |n| %>
+    <li><%= n['title'] %> : <%= n['points'] %></li>
+  <% end %>
 </ul>
 
 </body>
