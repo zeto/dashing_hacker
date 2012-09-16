@@ -22,7 +22,7 @@ post '/email' do
 
     message << "Mean: #{@hacker_news.mean} Median: #{@hacker_news.median} Mode: #{@hacker_news.mode}\n"
 
-    smtp.send_message message, params['from'], params['to']
+    smtp.send_message(message, params['from'], params['to']) rescue return "Cant contact smtp"
   end
   "Email sent!"
 end
