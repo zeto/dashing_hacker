@@ -1,0 +1,11 @@
+Needs sinatra:
+
+$ gem install sinatra
+
+Running:
+
+$ ruby go.rb
+
+Testing:
+
+$ rake
