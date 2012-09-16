@@ -5,7 +5,7 @@
 
 <ul>
   <% @hacker_news.news.each do |n| %>
-    <li><%= n['title'] %> : <%= n['points'] %></li>
+    <li><a href="<%=n['url']%>"><%= n['title'] %></a> (<%= n['points'] %>)</li>
   <% end %>
 </ul>
 
@@ -15,10 +15,16 @@
 
 <h2>Above median:</h2>
 <ul>
-  <% @hacker_news.above_median.each do |n| %>
-    <li><%= n['title'] %> : <%= n['points'] %></li>
+  <% @hacker_news.news_above_median.each do |n| %>
+    <li><a href="<%=n['url']%>"><%= n['title'] %></a> (<%= n['points'] %>)</li>
   <% end %>
 </ul>
+
+<form action="/email" method="post">
+  <input type="email" name="from" placeholder="From" required>
+  <input type="email" name="to" placeholder="To" required>
+  <input type="submit" value="Send email!">
+</form>
 
 </body>
 </html>

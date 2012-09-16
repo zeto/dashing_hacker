@@ -10,14 +10,6 @@ class HackerNews
     load
   end
 
-  def load
-    news = JSON.parse(open('http://api.ihackernews.com/page').read) rescue 'Cant read Hacker News'
-    
-    if news.has_key?('items') && news['items'].any?
-      @news = news['items']
-    end
-  end
-
   def mean
     points.mean
   end
@@ -30,13 +22,21 @@ class HackerNews
     points.mode
   end
 
-  def above_median
-    news.select { |n| n['points'] > median}
+  def news_above_median
+    news.select {|n| n['points'] > median}
   end
 
   private
 
   def points
     news.map {|n| n['points']}
+  end
+
+  def load
+    json = JSON.parse(open('http://api.ihackernews.com/page').read) rescue 'Cant read Hacker News'
+    
+    if json.has_key?('items') && json['items'].any?
+      @news = json['items']
+    end
   end
 end
