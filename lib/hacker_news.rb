@@ -33,7 +33,12 @@ class HackerNews
   end
 
   def load
-    json = JSON.parse(open('http://api.ihackernews.com/page').read) rescue 'Cant read Hacker News'
+    begin
+      json = JSON.parse(open('http://api.ihackernews.com/page').read)
+    rescue
+      @news = []
+      return
+    end
     
     if json.has_key?('items') && json['items'].any?
       @news = json['items']
