@@ -25,7 +25,7 @@ class Array
     end
 
     max = number_counts.values.max
-    mode = number_counts.map {|nc| nc[0] if nc[1] == max}.compact
-    mode.count == 1 ? mode[0] : mode
+    mode = number_counts.map {|number,count| number if count == max}.compact
+    mode.count == 1 ? mode.first : mode
   end
 end
